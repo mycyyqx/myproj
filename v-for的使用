@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <!-- 方法一：差值表达式 -->
+        <ul>
+            <li> {{list[0]}} </li>
+            <li> {{list[1]}} </li>
+            <li> {{list[2]}} </li>
+            <li> {{list[3]}} </li>
+        </ul>
+        <!-- 方法二：v-for -->
+        <ul>
+
+            <!-- 写法一 -->
+            <li v-for='item in list'> {{$index}} -- {{item}} </li> <!-- 参数1：数组中的每一项元素  参数2：数组名  $index:每一项的索引值-->
+            <!-- 写法二 -->
+            <li v-for='(index,item) in list' track-by='$index'> {{index}} -- {{item}} </li>
+            <!-- 2.0中索引值要放在后面  顺序与1.0相反   没有$index属性-->
+            <!-- <li v-for='(item,index) in list' :key='index'> {{index}} -- {{item}} </li> -->
+
+
+            <!-- 遍历对象 -->
+            <li v-for='(key,item) in user'>  {{key}} -- {{item}} </li>   <!-- 1.0版本不能使用index-->
+            <li v-for='(key,item,index) in user'> {{index}}--{{key}}--{{item}} </li>  <!-- 2.0在遍历对象的时候才可以使用index -->
+        </ul>
+    </div>
+</body>
+<script src="./vue1026.js"></script>
+<script>
+    var vm = new Vue({
+        el:('.app'),
+        data:{
+            list:[2,5,8,7,9,4],
+            user:{name:'RNG',age:7}
+        }
+    })
+</script>
+</html>
