@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <button v-on:click='toggle'>点击一下</button>
+        <!-- <p v-if='isShow'>RNG加油ヾ(◍°∇°◍)ﾉﾞ</p> -->
+        <p v-show='isShow'>RNG加油ヾ(◍°∇°◍)ﾉﾞ</p>
+
+        <!-- v-if:使整个p元素消失
+        v-show:给p标签添加一个display-none属性 -->
+    </div>
+</body>
+<script src="./vue1026.js"></script>
+<script>
+    new Vue({
+        el:('.app'),
+        data:{
+            isShow:true
+        },
+        methods:{
+            toggle:function () {
+                this.isShow = !this.isShow  //点击只要让isShow的值和当前值相反即可
+            }
+        }
+    })
+</script>
+</html>
