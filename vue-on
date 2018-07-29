@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .app{
+        color: aquamarine;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    button{
+        background-color: pink;
+        color: yellow;
+        font-weight: 700;
+    }
+    button:last-child{
+        background-color: skyblue;
+    }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <button v-on:click='sub'>RNG加油ヾ(◍°∇°◍)ﾉﾞ</button> <br>
+        简写方式：<br>
+        <button @click='sub'>RNG加油ヾ(◍°∇°◍)ﾉﾞ</button>
+        
+        <!-- .prevent阻止默认行为 -->
+        <form @keydown.prevent action="http://www.baidu.com">
+            <input @keydown='key' type="text">
+        </form>
+    </div>
+</body>
+<script src="./vue1026.js"></script>
+<script>
+    new Vue({
+        el:('.app'),
+        methods:{
+            sub:function(){
+                alert('RNG加油ヾ(◍°∇°◍)ﾉﾞ')
+            },
+            key:function() {
+                alert('RNG加油鸭')
+            }
+        }
+    })
+</script>
+</html>
